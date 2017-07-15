@@ -60,4 +60,7 @@ Session.vim
 # Assorted
 notes.txt
 
+# Django
+db.sqlite3
+venv/
 
