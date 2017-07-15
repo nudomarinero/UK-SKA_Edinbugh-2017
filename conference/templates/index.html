@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div>
+    <h1>UK SKA Workshop, Edinburgh 2017</h1>
+    <p><a href="{% url 'register' %}">Registration link</a></p>
+    <h2>Participants</h2>
+    <ul>
+        {% for participant in participants %}
+        <li>{{ participant.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

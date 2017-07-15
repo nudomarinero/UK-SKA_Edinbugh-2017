@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>Participant</h1>
+<ul>
+    <li>Email: {{ participant.email }}</li>
+    <li>Name: {{ participant.name }}</li>
+    <li>Institution: {{ participant.institution }}</li>
+</ul>
+{% if participant.contribution %}
+<h2>Contribution</h2>
+<h3>Title: {{ participant.title }}</h3>
+<h3>Abstract</h3>
+<p>{{ participant.abstract }}</p>
+{% endif %}
+
+{% endblock %}
