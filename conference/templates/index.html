@@ -4,6 +4,11 @@
 {% block content %}
 <div>
     <h1>UK SKA Workshop, Edinburgh 2017</h1>
+    <p>What</p>
+    <p>When</p>
+    <p>Where</p>
+    <p>Why</p>
+    <p>How</p>
     <p><a href="{% url 'register' %}">Registration link</a></p>
     <h2>Participants</h2>
     <ul>
@@ -11,5 +16,11 @@
         <li>{{ participant.name }}</li>
         {% endfor %}
     </ul>
+    <h2>Agenda</h2>
+    <ul>
+        <li>Contribution 1</li>
+    </ul>
+    <h2>Contact information</h2>
+    <p>Contact info</p>
 </div>
 {% endblock %}
