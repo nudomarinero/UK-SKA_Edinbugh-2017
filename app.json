@@ -1,0 +1,8 @@
+{
+  "name": "UK SKA Edinburgh 2017",
+  "description": "Workshop of the UK SKA in Edinburgh 2017.",
+  "image": "heroku/python",
+  "repository": "https://github.com/heroku/uk-ska-edinbugh-2017",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
