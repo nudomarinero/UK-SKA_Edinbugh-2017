@@ -19,8 +19,6 @@ def register(request):
         if form.is_valid():
             participant = form.save(commit=False)
             new = slugify(participant.email)
-            print(new)
-            print(type(new))
             participant.participant_hash = new
             participant.save()
             return HttpResponseRedirect('/participant/{}/'.format(participant.participant_hash))
