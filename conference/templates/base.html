@@ -1,13 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>{% block title %}UK SKA Workshop in Edinburgh 2017{% endblock %}</title>
-  {% load static %}
-  {% load bootstrap3 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
+    {% load static from staticfiles %}
+    {% load bootstrap3 %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>{% block title %}UK SKA Workshop in Edinburgh 2017{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Navigation -->
+    <link href="{% static 'css/plugin.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cousine" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-<body>
+<body class="">
+
+
+    <!-- Start: Navbar Area
+        ============================= -->
+    <header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+
+                    <a class="okayNav-header__logo navbar-brand" href="#">
+                        <span class="organisation">UK SKA</span>
+                    </a>
+
+                </div>
+                <!-- End: .col-xs-3 -->
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+
+                    <nav role="navigation" class="okayNav pull-right" id="js-navbar-menu">
+                        <ul id="navbar-nav" class="navbar-nav">
+                            {% block navigation %}
+                            <li><a class="btn-nav" href="#about">About</a></li>
+                            <li><a class="btn-nav" href="#participants">Participants</a></li>
+                            <li><a class="btn-nav" href="#agenda">Agenda</a></li>
+                            <li><a class="btn-nav" href="#contact">Contact</a></li>
+                            <li><a class="btn-nav" href="{% url 'register' %}">Registration</a></li>
+                            {% endblock %}
+                        </ul>
+                    </nav>
+
+                </div>
+                <!-- End: .col-xs-9 -->
+            </div>
+            <!-- End: .row -->
+        </div>
+        <!-- End: .container -->
+    </header>
+    <!-- /header -->
+    <!-- End: Navbar Area
+        ============================= -->
+
     {% block content %}{% endblock %}
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--<ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>-->
+                    <p class="copyright small text-center">Unless explicitly stated otherwise, all photographs are copyright protected of the SKA Organisation and are released under the&nbsp;<a href="http://creativecommons.org/licenses/by/3.0" target="_blank">Creative Commons Attribution 3.0 Unported License</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/vendors/jquery-1.11.3.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/vendors/plugin.js' %}"></script>
+    <script src="{% static 'js/custom-scripts.js' %}"></script> 
+
 </body>
+
 </html>
