@@ -7,16 +7,17 @@ body.okayNav-loaded {
   overflow-x: hidden;
 }
 .okayNav:not(.loaded) {
-  visibility: hidden;
+  /* visibility: hidden;*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
+  user-select: none; 
 }
 .okayNav ul {
   /* We want two navigations - one hidden and one visible */
   float: left;
   margin-top: 7px;
+      list-style-type: none;
 }
 .okayNav a {
   /* Links general styling */
