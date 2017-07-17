@@ -40,19 +40,31 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
     <script>
+    var p;
     window.addEventListener("load", function(){
     window.cookieconsent.initialise({
-    "palette": {
-        "popup": {
-        "background": "#252e39"
+        "palette": {
+            "popup": {
+            "background": "#252e39"
+            },
+            "button": {
+            "background": "#355dff"
+            }
         },
-        "button": {
-        "background": "#355dff"
+        "dismissOnScroll": 100,
+        "dismissOnTimeout": 5000,
+        "onStatusChange": function(status) {
+            // console.log('onStatusChange() called with status '+status);
+            if (status == "dismiss") {
+                // console.log('Close popup');
+                p.close();
+            };
         }
-    },
-    "dismissOnScroll": 100,
-    "dismissOnTimeout": 5000
-    })});
+    }, function (popup) {
+      p = popup;
+    }
+    
+    )});
     </script>
 </head>
 <body class="">
