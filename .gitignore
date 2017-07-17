@@ -63,4 +63,5 @@ notes.txt
 # Django
 db.sqlite3
 venv/
+skaedi/staticfiles/
 
