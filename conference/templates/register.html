@@ -32,42 +32,18 @@
                 {% bootstrap_messages %}
 
                 {% if update %}
-                <p>You are registered correctly and can update your data in this page. Please save the link for future changes.</p>
+                <p>You are registered correctly and can update your data or contribution in this page. 
+                    <strong>Please save the link to this page for future updates.</strong> 
+                    If you have any problem with the registration or updating the data please contact 
+                    <a href="mailto:pnb@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">pnb@roe.ac.uk</a> or 
+                    <a href="mailto:jsm@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">jsm@roe.ac.uk</a>.
+                </p>
                 {% endif %}
 
                 <form action="{% url 'register' %}" method="post" class="clearfix">
                     {% csrf_token %}
                     {% bootstrap_form_errors form type='non_fields' %}
                     
-
-                    <!-- <div class="form-group">
-                        <label for="exampleInputEmail">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputName">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputInstitution">Institution</label>
-                        <input type="text" class="form-control" id="exampleInputInstitution" placeholder="Institution">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" class="js-toggle-contribution"> Contribution
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputTitle">Title</label>
-                        <input type="text" class="form-control js-field-contribution" id="exampleInputInstitution" placeholder="Title" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputAbstract">Abstract</label>
-                        <textarea name="abstract" cols="40" rows="10" class="form-control js-field-contribution" placeholder="Abstract" title="" id="id_abstract" disabled></textarea> </div>
-                    <div class="form-group">
-                        <label for="exampleInputLink">Link</label>
-                        <input type="text" class="form-control js-field-contribution" id="exampleInputLink" placeholder="Link" disabled>
-                    </div> -->
                     {% bootstrap_field form.email %}
                     {% bootstrap_field form.name %}
                     {% bootstrap_field form.institution %}
