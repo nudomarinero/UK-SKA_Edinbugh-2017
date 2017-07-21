@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.utils.text import slugify
+from django.conf import settings
+import base64
+import hashlib
+import re
 
 from .models import Participant
 from .forms import RegistrationForm
@@ -12,19 +16,40 @@ def index(request):
     context = {"participants": participants}
     return render(request, 'index.html', context)
 
-def register(request):
-    """Registration page"""
+def register(request, participant_id=None):
+    """Registration and update page"""
+    update = False
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
+        # Update data
+        try: 
+            referer = request.META['HTTP_REFERER']
+            ids = re.findall("participant/([\w-]+)/$", referer)
+            if ids:
+                previous_user = get_object_or_404(Participant, participant_hash=ids[0])
+                form = RegistrationForm(request.POST, instance=previous_user)
+                update = True
+            else:
+                form = RegistrationForm(request.POST)
+        except (Participant.DoesNotExist, IndexError) as error:
+            form = RegistrationForm(request.POST)
         if form.is_valid():
             participant = form.save(commit=False)
             new = slugify(participant.email)
-            participant.participant_hash = new
+            secret = settings.SECRET_KEY
+            participant_hash = base64.urlsafe_b64encode(hashlib.md5((new+secret).encode("utf-8")).digest()).decode("utf-8").replace("=","")
+            participant.participant_hash = participant_hash
             participant.save()
             return HttpResponseRedirect('/participant/{}/'.format(participant.participant_hash))
     else:
-        form = RegistrationForm()
-    context = {"form": form}
+        if participant_id is None:
+            form = RegistrationForm()
+            update = False
+        else:
+            participant_init = get_object_or_404(Participant, participant_hash=participant_id)
+            form = RegistrationForm(instance=participant_init)
+            update = True
+    context = {"form": form, "update": update}
     return render(request, 'register.html', context)
 
 

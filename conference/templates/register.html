@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="site-heading">
-                            <h1>Registration</h1>
+                            <h1>{% if update %}Participant information{% else %}Registration{% endif %}</h1>
                             <hr class="small">
                             <span class="subheading">Science Community Workshop</span>
                         </div>
@@ -30,6 +30,10 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
                 {% bootstrap_messages %}
+
+                {% if update %}
+                <p>You are registered correctly and can update your data in this page. Please save the link for future changes.</p>
+                {% endif %}
 
                 <form action="{% url 'register' %}" method="post" class="clearfix">
                     {% csrf_token %}
@@ -72,7 +76,7 @@
                     {% bootstrap_field form.abstract %}
                     {% bootstrap_field form.link %}
                     {% buttons %}
-                    <button type="submit" class="btn btn-fill pull-right">Register</button>
+                    <button type="submit" class="btn btn-fill pull-right">{% if update %}Update data{% else %}Register{% endif %}</button>
                     {% endbuttons %}
                 </form>
             </div>

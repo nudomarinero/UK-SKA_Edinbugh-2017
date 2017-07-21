@@ -23,6 +23,6 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$', conference.views.index, name='index'),
     url(r'^register', conference.views.register, name='register'),
-    url(r'^participant/(?P<participant_id>[\w-]+)/$', conference.views.participant_home, name='participant'),
+    url(r'^participant/(?P<participant_id>[\w-]+)/$', conference.views.register, name='participant'),
     url(r'^admin/', admin.site.urls),
 ]
