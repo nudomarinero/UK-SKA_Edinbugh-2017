@@ -44,7 +44,17 @@
         }
     }
 
-
+    function contributionReadonlyCheck() {
+        if($("#id_contribution").is(':checked')) {
+                $('#id_title').prop('readonly', false);
+                $('#id_abstract').prop('readonly', false);
+                $('#id_link').prop('readonly', false);
+            } else {
+                $('#id_title').prop('readonly', true);
+                $('#id_abstract').prop('readonly', true);
+                $('#id_link').prop('readonly', true);
+            }
+    }
 
 
     $(window).on('resize', function() {
@@ -59,8 +69,10 @@
 
         deviceControll();
 
-        $('.js-toggle-contribution').click(function() {
-            $('.js-field-contribution').toggleDisabled();
+        contributionReadonlyCheck();
+
+        $('#id_contribution').click(function() {
+            contributionReadonlyCheck();
         });
 
         /**
