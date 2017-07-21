@@ -32,8 +32,8 @@
                 {% bootstrap_messages %}
 
                 {% if update %}
-                <p>You are registered correctly and can update your data or contribution in this page. 
-                    <strong>Please save the link to this page for future updates.</strong> 
+                <p id="id_p_update">You are registered correctly and can update your data or contribution in this page. 
+                    <strong>Please save the link to this page for future updates: {{ request.build_absolute_uri }}</strong><br/>
                     If you have any problem with the registration or updating the data please contact 
                     <a href="mailto:pnb@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">pnb@roe.ac.uk</a> or 
                     <a href="mailto:jsm@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">jsm@roe.ac.uk</a>.

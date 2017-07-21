@@ -69,6 +69,10 @@
 
         deviceControll();
 
+        if($("#id_p_update").length) {
+            $('#id_email').prop('readonly', true);
+        }
+
         contributionReadonlyCheck();
 
         $('#id_contribution').click(function() {
