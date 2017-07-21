@@ -88,7 +88,7 @@
                 <div class="section-header col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
                     <h2 class="section-heading">Participants</h2>
-                    <p class="sub-heading">Lorem ipsum dolor sit amet, consectetuer elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <p class="sub-heading">List of participants registered for the Workshop.</p>
 
                 </div>
                 <!-- End: Section Header -->
@@ -98,7 +98,7 @@
                 <div class="features-item col-xs-12">
                     <div class="row">
 
-                        {% for participant in participants %}
+                        {% for participant in participants %}{% if participant.assistant %}
                         <div class="each-features col-md-4 col-sm-6 col-xs-12">
                             <div class="inner background-light text-center">
                                 <!--<div class="features-hover">
@@ -123,7 +123,7 @@
                             <!-- End: .inner -->
                         </div>
                         <!-- End: .each-features -->
-                        {% endfor %}
+                        {% endif %}{% endfor %}
                         
 
                     </div>
