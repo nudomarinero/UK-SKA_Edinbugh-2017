@@ -1,26 +1,29 @@
 /**
- * ===============================
- *  Defult CSS
- * ===============================
+ * ==========
+ *  Elements
+ * ==========
  */
 
 body {
-    font-family: 'Cousine', monospace;
-    color: rgba(88, 88, 88, 0.8);
+    font-family: $font-family-mono;
+    color: $col_grey7;
     font-size: 16px;
-    font-style: none;
-    line-height: 25px;
-    font-weight: 300;
+    line-height: 1.5;
+    font-weight: 400;
     overflow-x: hidden !important;
-    text-align: left;
-    position: relative;
+    //-webkit-tap-highlight-color is a non-standard CSS property
+    //that sets the color of the highlight that appears over a link
+    //while it's being tapped. The highlighting indicates to the user
+    //that their tap is being successfully recognized, and indicates
+    //which element they're tapping on.
+    -webkit-tap-highlight-color: $col_blue;
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    color: #355dff;
+    color: $col_blue;
     -webkit-transition: all 0.4s ease-out;
     -moz-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
@@ -33,63 +36,51 @@ a {
     transform-style: preserve-3d;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    &:hover {
+        color: $col_blue;
+    }
 }
 
-a:hover {
-    color: #0234ff;
+a {
+    color: $col_blue;
+    &:hover {
+        color: lighten( $col_blue, 5%);
+    }
 }
 
-a:focus {
-    outline: 0 !important;
-}
-
-.fix {
-    overflow: hidden;
-}
-
-.section-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100%;
-    min-width: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.section-video .bgvid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100%;
-    min-width: 100%;
-    background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-}
-
-.body-video-bg>.section-video {
-    position: fixed;
-    top: 0;
-    left: 0;
+hr {
+    border-top: 1px solid $col_grey3;
 }
 
 p {
-    /*font-family: 'Inconsolata', sans-serif;*/
-    color: rgba(88, 88, 88, 0.8);
+    color: $col_grey7;
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 25px;
     font-weight: 400;
+    &:last-child {
+        margin-bottom: 0px;
+    }
 }
 
-p:last-child {
-    margin-bottom: 0px;
+ ::-moz-selection {
+    color: $col_white;
+    text-shadow: none;
+    background: $col_blue;
+}
+
+ ::selection {
+    color: $col_white;
+    text-shadow: none;
+    background: $col_blue;
 }
 
 
-/* Heading Style */
+/**
+ * ==========
+ *  Headings
+ * ==========
+ */
 
 h1,
 h2,
@@ -97,44 +88,65 @@ h3,
 h4,
 h5,
 h6 {
-    /*font-family: 'Lato', sans-serif;*/
-    color: #585858;
+    font-weight: $font-weight-headings;
+    line-height: $line-height-headings;
 }
 
 h1 {
-    font-size: 42px;
-    line-height: 70px;
-    font-weight: 300;
+    font-size: 2.8rem;
+    @media (min-width: 768px) {
+        font-size: 3.6rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 4.2rem;
+    }
 }
 
 h2 {
-    font-size: 40px;
-    line-height: 55px;
-    font-weight: 300;
+    font-size: 2.4rem;
+    @media (min-width: 992px) {
+        font-size: 3.2rem;
+    }
 }
 
 h3 {
-    font-size: 25px;
-    line-height: 45px;
-    font-weight: 400;
+    font-size: 2.1rem;
+    @media (min-width: 992px) {
+        font-size: 2.4rem;
+    }
 }
 
 h4 {
-    font-size: 22px;
-    line-height: 40px;
-    font-weight: 400;
+    font-size: 1.8rem;
+    @media (min-width: 992px) {
+        font-size: 2.1rem;
+    }
 }
 
 h5 {
-    font-size: 20px;
-    line-height: 34px;
-    font-weight: 400;
+    font-size: 1.6rem;
+    @media (min-width: 992px) {
+        font-size: 1.8rem;
+    }
 }
 
 h6 {
-    font-size: 18px;
-    line-height: 30px;
-    font-weight: 400;
+    font-size: 1.4rem;
+    @media (min-width: 992px) {
+        font-size: 1.6rem;
+    }
+}
+
+small {
+    font-size: 1.2rem;
+    @media (min-width: 992px) {
+        font-size: 1.4rem;
+    }
+}
+
+.lead-text {
+    font-size: $font-size-l;
+    line-height: 1.6;
 }
 
 
@@ -226,9 +238,9 @@ h6 {
 
 
 /**
- * ====================================
- * Background Overlay Color
- * ====================================
+ * =============
+ * Overlay Color
+ * =============
  */
 
 .overlay-color {
@@ -1325,6 +1337,77 @@ h6 {
  * ====================================
  */
 
+.time-event-wrapper {
+    list-style-type: none;
+    text-align: left;
+    @media only screen and (min-width: 1200px) {
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        display: flex;
+        flex-direction: column;
+    }
+    li {
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+        display: block;
+        padding: 10px 0;
+        @media only screen and (min-width: 1200px) {
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            padding: 20px 0;
+        }
+    }
+    .time {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        color: #222;
+        font-weight: 700;
+        @media only screen and (min-width: 1200px) {
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            -ms-flex-preferred-size: 17%;
+            -webkit-flex-basis: 17%;
+            display: flex;
+            flex-basis: 17%;
+        }
+    }
+    .event {
+        display: block;
+        text-align: left;
+        @media only screen and (min-width: 1200px) {
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            -ms-flex-preferred-size: 81%;
+            -webkit-flex-basis: 83%;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            display: flex;
+            margin-left: 2%;
+            flex-basis: 83%;
+            flex-direction: column;
+        }
+    }
+    .invited-talks {
+        margin: 0;
+        padding: 20px 0 0;
+        @media only screen and (min-width: 1200px) {
+            padding: 10px 0 0;
+        }
+        li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+}
+
 .features-section-3 .testimonial-wrapper .item {
     padding-top: 15px;
 }
@@ -1524,3 +1607,44 @@ p.copyright {
 .navbar-home .navbar-toggle .icon-bar {
     background-color: rgba(88, 88, 88, 0.7);
 }
+
+.sr-only.active {
+    position: relative;
+    z-index: 1035;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+}
+
+
+/*  --------------------
+      Links with icons
+      --------------------  */
+
+// a[href ^="mailto:"]::after {
+//     font-family: $font-family-icons;
+//     content: "\f003";
+//     margin: 0 0 0 5px;
+// }
+
+// a[href $=".pdf"]::after {
+//     font-family: $font-family-icons;
+//     content: "\f1c1";
+//     margin: 0 0 0 5px;
+// }
+
+// a[href $=".doc"]::after,
+// a[href $=".docx"]::after {
+//     font-family: $font-family-icons;
+//     content: "\f1c2";
+//     margin: 0 0 0 5px;
+// }
+
+// a[href $=".csv"]::after,
+// a[href $=".xls"]::after,
+// a[href $=".xlsx"]::after {
+//     font-family: $font-family-icons;
+//     content: "\f1c3";
+//     margin: 0 0 0 5px;
+// }

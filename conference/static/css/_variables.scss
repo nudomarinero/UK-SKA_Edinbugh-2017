@@ -1,0 +1,54 @@
+/*  ------------------
+    Variables: colours
+    ------------------  */
+
+// Branding colours
+$col_greyzone: #f2a900; //Greyzone branding colour
+// Other colours
+$col_sea: #3277ae; //Used on anchor links
+$col_sky: #66afe9; //Used on input boxes to enhance accesibility: focus
+$col_blue:#355dff;
+// Grey scale
+$col_black: #000;
+$col_grey9: #222;
+$col_grey8: #444;
+$col_grey7: #585858;
+$col_grey6: #888;
+$col_grey5: #aaa;
+$col_grey4: #dbdbdb;
+$col_grey3: #ccc;
+$col_grey2: #e8e8e8;
+$col_grey1: #eee;
+$col_white: #fff;
+// Hightlight colours (used on blogs when the link with the date in replies is clicked)
+$col_high-blue: lightcyan;
+$col_high-yellow: lightyellow;
+
+/*  -----------
+    Typography: Classic scale (http://spencermortensen.com/articles/typographic-scale/)
+    -----------  */
+
+$font-size-xs: 1.2rem;
+$font-size-s: 1.4rem;
+$font-size-m: 1.6rem;
+$font-size-l: 1.8rem;
+$font-size-xl: 2.1rem;
+$font-family-mono: 'Cousine',
+monospace;
+// The font names after 'Arial' have been included for Linux users.
+$font-family-sans-serif: Helvetica,
+'Helvetica Neue',
+Arial,
+'DejaVu Sans',
+'Nimbus Sans L',
+'Liberation Sans',
+Freesans,
+sans-serif;
+$font-family-base: $font-family-sans-serif;
+$font-size-base: $font-size-m;
+$font-weight-base: 400;
+$line-height-base: 1.5;
+$font-family-icons: FontAwesome;
+$font-family-headings: inherit;
+$font-weight-headings: 600;
+$line-height-headings: 1.3;
