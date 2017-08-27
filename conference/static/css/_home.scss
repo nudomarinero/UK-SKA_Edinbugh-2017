@@ -1502,6 +1502,19 @@ small {
 footer {
     padding: 50px 0;
     background-color: #444;
+    a {
+        color: orange;
+        &:hover {
+            color: lighten(orange, 5%);
+        }
+    }
+}
+
+p.webmaster {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 0;
+    font-size: 1.4rem;
 }
 
 p.copyright {
