@@ -1,32 +1,23 @@
 {% extends "base.html" %} {% load static from staticfiles %} {% block content %}
 
-<!-- Start: Header Section
-        ================================ -->
-<section class="header-section-1 bg-image-1 header-js" id="header">
+<!-- Start: Hero -->
+<section class="hero header-js text-center" id="header">
     <div class="overlay-color">
         <div class="container">
             <div class="row section-separator">
-
                 <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                    <div class="part-inner text-center">
-
-                        <!--  Header SubTitle Goes here -->
-                        <h1 class="title">Science Community Workshop</h1>
-
-                        <div class="detail">
-                            <p>The meeting will be held at the Royal Observatory of Edinburgh on 7th September 2017. It will run from around 11:00am to 17:00pm, and include both talks and extensive discussion time. You can find directions to the ROE in:
-                                <a href="http://www.roe.ac.uk/ifa/about/location.html">location</a></p>
-                        </div>
-
-                        <!-- Button Area -->
-                        <div class="btn-form btn-scroll">
-                            <a href="{% url 'register' %}" class="btn btn-fill right-icon">Registration</a>
-                        </div>
-
+                    <!-- Header -->
+                    <h1 class="title">Science Community Workshop</h1>
+                    <!-- Sub-Header -->
+                    <div class="detail">
+                        <p>The meeting will be held at the Royal Observatory of Edinburgh on 7th September 2017. It will run from around 11:00am to 17:00pm, and include both talks and extensive discussion time. You can find directions to the ROE in:
+                            <a href="http://www.roe.ac.uk/ifa/about/location.html">location</a></p>
+                    </div>
+                    <!-- Button -->
+                    <div class="btn-form btn-scroll">
+                        <a href="{% url 'register' %}" class="btn btn-fill right-icon">Registration</a>
                     </div>
                 </div>
-                <!-- End: .part-1 -->
-
             </div>
             <!-- End: .row -->
         </div>
@@ -34,181 +25,116 @@
     </div>
     <!-- End: .overlay-color -->
 </section>
-<!-- End: Header Section
-        ================================ -->
+<!-- End: Hero -->
 
-
-
-
-<!-- Start: Features Section 7
-        ====================================== -->
-<section class="features-section-7 content-half background-light" id="about">
-
-
+<!-- Start: About -->
+<section class="about content-half background-light" id="about">
     <div class="container">
         <div class="row section-separator text-left">
-
-
+            <!-- About text: left -->
             <div class="container-half container-half-left background-light">
                 <div class="col-xs-12 col-lg-8">
-                    <div class="inner">
-
-                        <!--<h2 class="section-heading">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam notincidunt.</h2>-->
-                        <div class="detail">
-                            <p>Developments towards the Square Kilometre Array (SKA) Observatory continue with pace. The on-going cost control project, the planning and development of Regional Processing Centres, and the UK Radio Astronomy Review instigated
-                                by STFC's Science Board, all have potentially significant implications for UK scientists aiming to exploit the transformational capabilities of the SKA. This meeting will provide an opportunity for the UK community to keep
-                                up-to-date with developments, review the UK's strategic priorities, and discuss how best to achieve these.</p>
-                        </div>
-
-                    </div>
+                    <p>Developments towards the Square Kilometre Array (SKA) Observatory continue with pace. The on-going cost control project, the planning and development of Regional Processing Centres, and the UK Radio Astronomy Review instigated by STFC's
+                        Science Board, all have potentially significant implications for UK scientists aiming to exploit the transformational capabilities of the SKA. This meeting will provide an opportunity for the UK community to keep up-to-date with
+                        developments, review the UK's strategic priorities, and discuss how best to achieve these.</p>
                 </div>
             </div>
+            <!-- About image: right -->
             <div class="container-half container-half-right cover" style="background-image: url({% static 'images/SKA1_SA_closeup_highres.screen.jpg' %});"></div>
-
-
-
         </div>
     </div>
 </section>
-<!-- End: Features Section 7
-        ================================ -->
+<!-- End: About -->
 
-
-<!-- Start: Features Section 6
-        ================================== -->
+<!-- Start: Participants -->
 <section class="features-section-6 relative background-semi-dark" id="participants">
     <div class="container">
         <div class="row section-separator">
-
-            <!-- Start: Section Header -->
+            <!-- Start: Sub-heading -->
             <div class="section-header col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-
                 <h2 class="section-heading">Participants</h2>
                 <p class="sub-heading">List of participants registered for the Workshop.</p>
-
             </div>
-            <!-- End: Section Header -->
-
-            <div class="clearfix"></div>
-
+            <!-- End: Sub-heading -->
             <div class="features-item col-xs-12">
                 <div class="row temporary-flex" style="">
                     {% for participant in participants %}{% if participant.assistant %}
                     <div class=" each-features col-md-3 col-sm-6 col-xs-12 ">
                         <div class="inner background-light text-center ">
-                            <!--<div class="features-hover ">
-                                    <img src="images/our-members/1.jpg " alt="Our Members " class="img-responsive ">
-                                    <div class="mask ">
-                                        <div class="mask-inner ">
-                                            <div class="title ">Get Connected</div>
-                                            <ul class="nav social-icon ">
-                                                <li><a href="# "><i class="icon icons8-facebook "></i></a></li>
-                                                <li><a href="# "><i class="icon icons8-twitter "></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>-->
-                            <div class="clearfix "></div>
                             <div class="detail ">
                                 <h6 class="name ">{{ participant.name }}</h6>
                                 <p class="position ">{{ participant.institution }}</p>
                             </div>
                         </div>
-                        <!-- End: .inner -->
                     </div>
-                    <!-- End: .each-features -->
                     {% endif %}{% endfor %}
-
-
                 </div>
             </div>
             <!-- End: .col-md-8 -->
-
         </div>
         <!-- End: .row -->
     </div>
     <!-- End: .container -->
 </section>
-<!-- End: Features Section 6
-        ================================== -->
+<!-- End: Participants -->
 
-
-
-
-<!-- Start: Features Section 3
-        ================================== -->
-<section class="features-section-3 relative background-light " id="programme">
+<!-- Start: Programme -->
+<section class="features-section-3 relative background-light" id="programme">
     <div class="container ">
-        <div class="row section-separator ">
-
-            <!-- Start: Section Header -->
+        <div class="row section-separator">
+            <!-- Start: Sub-heading -->
             <div class="section-header col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
-
-                <h2 class="section-heading ">Programme</h2>
-                <p class="sub-heading ">Draft of the meeting programme</p>
-
+                <h2 class="section-heading">Programme</h2>
+                <p class="sub-heading">Draft of the meeting programme</p>
             </div>
-            <!-- End: Section Header -->
-
-            <div class="clearfix"></div>
-
-            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center ">
-                <ul>
-                    <li style="text-align: left ">10:30-11:00 Coffee</li>
-                    <li style="text-align: left ">11:00-11:20 Robert Braun: "SKA Status and Capability Update"</li>
-                    <li style="text-align: left ">11:20-11:45 Discussion (Cost control plans; UK SKA priorities)</li>
-                    <li style="text-align: left ">11:45-13:05 Invited talks on SKA pathfinder science:
-                        <ul>
-                            <li style="text-align: left ">Mike Garrett:   "eMERLIN and the SKA"</li>
-                            <li style="text-align: left ">Jane Greaves:   "Pathfinder Science on Planet Formation and the Cradle of Life"</li>
-                            <li style="text-align: left ">Suman Majumdar: "EoR 21-cm upper limits from LOFAR and a study of the signal non-Gaussianity through bispectrum"</li>
-                            <li style="text-align: left ">Philip Best:    "The LOFAR Two-Metre Sky Survey (LoTSS): status and opportunities"</li>
+            <!-- End: Sub-heading -->
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <ul class="time-event-wrapper">
+                    <li><span class="time">10:30-11:00</span><span class="event">Coffee</li>
+                    <li><span class="time">11:00-11:20</span><span class="event">Robert Braun: "SKA Status and Capability Update"</li>
+                    <li><span class="time">11:20-11:45</span><span class="event">Discussion (Cost control plans; UK SKA priorities)</li>
+                    <li><span class="time">11:45-13:05</span><span class="event">Invited talks on SKA pathfinder science:
+                        <ul class="invited-talks">
+                            <li>Mike Garrett: "eMERLIN and the SKA"</li>
+                            <li>Jane Greaves: "Pathfinder Science on Planet Formation and the Cradle of Life"</li>
+                            <li>Suman Majumdar: "EoR 21-cm upper limits from LOFAR and a study of the signal non-Gaussianity through bispectrum"</li>
+                            <li>Philip Best: "The LOFAR Two-Metre Sky Survey (LoTSS): status and opportunities"</li>
                         </ul>
                     </li>
-                    <li style="text-align: left ">13:05-13:45 Lunch</li>
-                    <li style="text-align: left ">13:45-15:15 Contributed talks</li>
-                    <li style="text-align: left ">15:15-15:40 Tea</li>
-                    <li style="text-align: left ">15:40-17:00 Ian Robson:     "STFC's Strategic Review of Radio Astronomy" followed by discussion of UK Radio Astronomy strategy </li>
+                    <li><span class="time">13:00-13:45</span><span class="event">Lunch</li>
+                    <li><span class="time">13:45-15:15</span><span class="event">Contributed talks</li>
+                    <li><span class="time">15:15-15:40</span><span class="event">Tea</li>
+                    <li><span class="time">15:40-17:00</span><span class="event">Ian Robson:     "STFC's Strategic Review of Radio Astronomy" followed by discussion of UK Radio Astronomy strategy</li>
                 </ul>
             </div>
             <!-- End: .col-md-8 -->
-
         </div>
         <!-- End: .row -->
     </div>
     <!-- End: .container -->
 </section>
-<!-- End: Features Section 3
-        ================================== -->
+<!-- End: Programme -->
 
-<!-- Start: Features Section 4
-        ================================== -->
-<section class="features-section-4 relative background-semi-dark contact" id="contact">
+<!-- Start: Contact -->
+<section class="relative background-semi-dark contact" id="contact">
     <div class="container">
         <div class="row section-separator">
-
-            <!-- Start: Section Header -->
+            <!-- Start: Sub-heading -->
             <div class="section-header col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-
-                <h2 class="section-heading ">Contact</h2>
-                <p class="sub-heading ">Please do not hesitate to contact us if you have any doubt about the meeting or any problem with the registracion.</p>
-
+                <h2 class="section-heading">Contact</h2>
+                <p class="sub-heading">Please do not hesitate to contact us if you have any doubt about the meeting or any problem with the registracion.</p>
             </div>
-            <!-- End: Section Header -->
-
-            <div class="col-lg-6 text-center ">
+            <!-- End: Sub-heading -->
+            <div class="col-md-6 text-center">
                 <h3><a href="mailto:pnb@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">pnb@roe.ac.uk</a></h3>
             </div>
-            <div class="col-lg-6 text-center ">
+            <div class="col-md-6 text-center">
                 <h3><a href="mailto:jsm@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">jsm@roe.ac.uk</a></h3>
             </div>
-            <!-- End: .col-md-8 -->
-
         </div>
         <!-- End: .row -->
     </div>
     <!-- End: .container -->
 </section>
-<!-- End: Features Section 4
-        ================================== -->
+<!-- End: Contact -->
 {% endblock %}

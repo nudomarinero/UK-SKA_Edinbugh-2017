@@ -3,6 +3,7 @@
 
 <head>
     {% load static from staticfiles %} {% load bootstrap3 %}
+    {% load sass_tags %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +20,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <link href="{% sass_src 'css/style.scss' %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cousine" rel="stylesheet">
@@ -121,6 +121,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <p class="webmaster">Website designed by <a href="https://www.ygoex.com/">Yolanda Goex</a> as part of <a href="https://lapitayellagarto.com/">La pita y el lagarto</a> team.</p>
                     <p class="copyright small text-center">Unless explicitly stated otherwise, all photographs are copyright protected of the SKA Organisation and are released under the&nbsp;<a href="http://creativecommons.org/licenses/by/3.0" target="_blank">Creative Commons Attribution 3.0 Unported License</a>.</p>
                 </div>
             </div>
@@ -135,7 +136,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom JavaScript -->
-    <!-- <script src="{% static 'js/vendors/plugin.js' %}"></script> -->
     <script src="{% static 'js/custom-scripts.js' %}"></script>
 
     <!-- Piwik -->
@@ -159,7 +159,7 @@
         })();
     </script>
     <noscript><p><img src="//analisis.adrastea.es/piwik.php?idsite=7&rec=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
+    <!-- End: Piwik -->
 
 </body>
 
