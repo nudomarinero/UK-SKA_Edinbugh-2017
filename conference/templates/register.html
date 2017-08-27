@@ -1,62 +1,55 @@
-{% extends "base.html" %}
-{% load static %}
-{% load bootstrap3 %}
-
-{% block navigation %}
+{% extends "base.html" %} {% load static %} {% load bootstrap3 %} {% block navigation %}
 <li><a class="btn-nav" href="/">Home</a></li>
-{% endblock %}
+{% endblock %} {% block content %}
 
-{% block content %}
-<!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <section class="intro-header">
-        <div class="overlay-color">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading">
-                            <h1>{% if update %}Participant information{% else %}Registration{% endif %}</h1>
-                            <hr class="small">
-                            <span class="subheading">Science Community Workshop</span>
-                        </div>
-                    </div>
+<!-- Start: Hero -->
+<section class="hero hero-register text-center">
+    <div class="overlay-color">
+        <div class="container">
+            <div class="row section-separator">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <!-- <div class="site-heading"> -->
+                        <h1 class="title">{% if update %}Participant information{% else %}Registration{% endif %}</h1>
+                        <hr class="small">
+                        <!-- <span class="subheading">Science Community Workshop</span> -->
+                        <h2>Science Community Workshop</h2>
+                    <!-- </div> -->
                 </div>
-            </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-                {% bootstrap_messages %}
-
-                {% if update %}
-                <p id="id_p_update">You are registered correctly and can update your data or contribution in this page. 
-                    <strong>Please save the link to this page for future updates: {{ request.build_absolute_uri }}</strong><br/>
-                    If you have any problem with the registration or updating the data please contact 
-                    <a href="mailto:pnb@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">pnb@roe.ac.uk</a> or 
-                    <a href="mailto:jsm@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">jsm@roe.ac.uk</a>.
-                </p>
-                {% endif %}
-
-                <form action="{% url 'register' %}" method="post" class="clearfix">
-                    {% csrf_token %}
-                    {% bootstrap_form_errors form type='non_fields' %}
-                    
-                    {% bootstrap_field form.email %}
-                    {% bootstrap_field form.name %}
-                    {% bootstrap_field form.institution %}
-                    {% bootstrap_field form.contribution %}
-                    {% bootstrap_field form.title %}
-                    {% bootstrap_field form.abstract %}
-                    {% bootstrap_field form.link %}
-                    {% buttons %}
-                    <button type="submit" class="btn btn-fill pull-right">{% if update %}Update data{% else %}Register{% endif %}</button>
-                    {% endbuttons %}
-                </form>
             </div>
         </div>
     </div>
+</section>
+<!-- End: Hero -->
+
+<!-- Start: Form -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>{% endif %} {% bootstrap_messages %} {% if update %}
+            <p id="id_p_update">You are registered correctly and can update your data or contribution in this page.
+                <strong>Please save the link to this page for future updates: {{ request.build_absolute_uri }}</strong><br/> If you have any problem with the registration or updating the data please contact
+                <a href="mailto:pnb@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">pnb@roe.ac.uk</a> or
+                <a href="mailto:jsm@roe.ac.uk?Subject=Contact%20from%20UK-SKA%20workshop">jsm@roe.ac.uk</a>.
+            </p>
+            {% endif %}
+
+            <form action="{% url 'register' %}" method="post" class="clearfix">
+                {% csrf_token %}
+                {% bootstrap_form_errors form type='non_fields' %}
+                {% bootstrap_field form.email %}
+                {% bootstrap_field form.name %}
+                {% bootstrap_field form.institution %}
+                {% bootstrap_field form.contribution %}
+                {% bootstrap_field form.title %}
+                {% bootstrap_field form.abstract %}
+                {% bootstrap_field form.link %}
+                {% buttons %}
+                <button type="submit" class="btn btn-fill pull-right">{% if update %}Update data{% else %}Register{% endif %}</button> {% endbuttons %}
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End: Form -->
 
 {% endblock %}
