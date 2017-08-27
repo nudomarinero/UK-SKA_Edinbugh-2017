@@ -219,6 +219,10 @@ small {
     display: block;
     padding-top: 145px;
     padding-bottom: 145px;
+    @media only screen and (min-width: 1800px) {
+    padding-top: 270px;
+    padding-bottom: 270px;
+    }
 }
 
 .section-separator.sp-top {
