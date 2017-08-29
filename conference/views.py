@@ -5,15 +5,22 @@ from django.conf import settings
 import base64
 import hashlib
 import re
+from datetime import datetime
 
 from .models import Participant
 from .forms import RegistrationForm
+
+registration_deadline = datetime(2017, 9, 4, 0, 0, 0, 0)
 
 # Create your views here.
 def index(request):
     """Main page"""
     participants = Participant.objects.all()
-    context = {"participants": participants}
+    registration_open = True
+    if datetime.now() >= registration_deadline:
+        registration_open = False
+    registration_open
+    context = {"participants": participants, "registration_open": registration_open}
     return render(request, 'index.html', context)
 
 def register(request, participant_id=None):

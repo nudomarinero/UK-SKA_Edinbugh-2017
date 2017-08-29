@@ -15,7 +15,8 @@
                     </div>
                     <!-- Button -->
                     <div class="btn-form btn-scroll">
-                        <a href="{% url 'register' %}" class="btn btn-fill right-icon">Registration</a>
+                        {% if registration_open %}<a href="{% url 'register' %}" class="btn btn-fill right-icon">Registration</a>
+                        {% else %}<span>Registration is closed now</span>{% endif %}
                     </div>
                 </div>
             </div>

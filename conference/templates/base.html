@@ -102,7 +102,7 @@
                             <li><a class="btn-nav" href="#participants">Participants</a></li>
                             <li><a class="btn-nav" href="#programme">Programme</a></li>
                             <li><a class="btn-nav" href="#contact">Contact</a></li>
-                            <li><a class="btn-nav" href="{% url 'register' %}">Registration</a></li>
+                            {% if registration_open %}<li><a class="btn-nav" href="{% url 'register' %}">Registration</a></li>{% endif %}
                             {% endblock %}
                         </ul>
                     </div>
