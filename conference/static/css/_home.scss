@@ -389,6 +389,67 @@ small {
     opacity: 1;
 }
 
+.btn-fill2 {
+    position: relative;
+    color: white;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background-color: #355dff;
+    margin: 0;
+    padding: 0 40px 0 15px;
+    width: auto;
+    line-height: 46px;
+    cursor: not-allowed;
+    text-align: left;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.35s ease;
+    border-color: transparent;
+    border-radius: 2px;
+}
+
+// .btn-fill2:before,
+// .btn-fill2:after {
+//     position: absolute;
+//     right: 15px;
+//     top: 0;
+//     transition: all 0.5s ease;
+//     font-family: FontAwesome;
+//     content: '\f105';
+//     font-size: 12px;
+// }
+
+// .btn-fill2:after {
+//     top: -33px;
+//     opacity: 0;
+//     font-size: 14px;
+// }
+
+// .btn-fill2:hover {
+//     transform: scale(1.05);
+//     background-color: #0234ff;
+//     color: white;
+// }
+
+// .btn-fill2:hover:before {
+//     top: 105%;
+//     opacity: 0;
+// }
+
+// .btn-fill2:hover:after {
+//     top: 0;
+//     opacity: 1;
+// }
+
+// .btn-fill2:hover .btn-fill-icon {
+//     top: 105%;
+//     opacity: 0;
+// }
+
+// .btn-fill2:hover .btn-fill-icon:after {
+//     top: 0;
+//     opacity: 1;
+// }
+
 .btn.btn-border {
     background-color: transparent;
     border-color: #ffffff;
